@@ -21,7 +21,13 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@interfaces/*": ["src/app/common/interfaces/*"],
+      "@enums/*": ["src/app/common/enums/*"],
+      "@services/*": ["src/app/common/services/*"],
+      "@modules/*": ["src/app/modules/*"],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
