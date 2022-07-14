@@ -6,9 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  dataSource = [];
-
-  displayedColumns: string[] = ['id', 'type', 'startPrice', 'currentPrice', 'nextPrice', 'timeToChange'];
   constructor() { }
 
   ngOnInit(): void {
