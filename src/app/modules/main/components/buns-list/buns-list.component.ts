@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BunTypes } from '@enums/bun-type';
 import { BunModel } from '@interfaces/bun.model';
-import { interval } from 'rxjs';
+import { BunsService } from '@services/buns.service';
+import { interval, repeat, takeUntil, timer } from 'rxjs';
 
 @Component({
   selector: 'app-buns-list',
@@ -20,13 +21,31 @@ export class BunsListComponent implements OnInit {
   }];
 
   displayedColumns: string[] = ['id', 'type', 'startPrice', 'currentPrice', 'nextPrice', 'timeToChange'];
-  constructor() { }
+  constructor(private bunsService: BunsService) { }
 
   ngOnInit(): void {
-    interval(60000)
-    .subscribe((val) => {
-      console.log(val);
+    this.bunsService.getAllBuns()
+    .subscribe((res)=>{
+      console.log(res)
     })
+
+    // timer(1000, 60*10000)
+    // .subscribe((val)=> {
+    //   console.log(val)
+    // })
+
+    // httpRequest.pipe(
+    //   repeat(),
+    //   //takeUntil()
+    // ).subscribe(x => console.log(x));
+
+
+    // interval(60000)
+    // .subscribe((val) => {
+    //   console.log(val);
+    // })
+
+
   }
 
 }

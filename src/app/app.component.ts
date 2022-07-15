@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SignalRService } from '@services/signalr.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Backery';
+
+  constructor(private signalRService: SignalRService){
+
+  }
+
+  ngOnInit() {
+    this.signalRService.startConnection();
+    this.signalRService.addTransferDataListener();
+    // this.startHttpRequest();
+    //this.signalRService.startHttpRequest();
+  }
 }
