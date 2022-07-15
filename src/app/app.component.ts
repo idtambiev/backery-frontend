@@ -14,8 +14,8 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.signalRService.startConnection();
-    this.signalRService.addTransferDataListener();
+    // this.signalRService.startConnection();
+    // this.signalRService.addTransferDataListener();
     // this.startHttpRequest();
     //this.signalRService.startHttpRequest();
   }

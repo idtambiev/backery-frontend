@@ -1,3 +1,9 @@
 <div class="wrapper">
+  <app-header></app-header>
+  <div class="actions-wrapper">
+    <input type="number" name="" id="" class="text" [formControl]="count">
+    <input type="button" value="Start" class="button" (click)="start()">
+  </div>
+
   <app-buns-list></app-buns-list>
 </div>
