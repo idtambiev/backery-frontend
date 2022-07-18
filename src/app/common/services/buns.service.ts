@@ -14,7 +14,7 @@ export class BunsService {
   constructor(private http: HttpClient) { }
 
   getAllBuns(): Observable<any>{
-    return this.http.get(this.url+'/buns');
+    return this.http.get(this.url);
   }
 
   createBunsList(count: number): Observable<Result>{

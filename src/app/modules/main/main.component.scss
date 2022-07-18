@@ -42,6 +42,23 @@
   }
 }
 
+.loading{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(78, 78, 85, 0.4);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+
+  &::ng-deep .mat-progress-spinner circle {
+    stroke: #1d511d;
+  }
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

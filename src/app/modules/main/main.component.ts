@@ -10,6 +10,7 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class MainComponent implements OnInit, OnDestroy {
   count: FormControl;
+  loading: boolean = false;
   private destroy$: Subject<void> = new Subject<void>();
 
   constructor(private fb: FormBuilder,
@@ -18,21 +19,22 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.count.valueChanges
-    .subscribe((res) => {
-      console.log(res);
-    })
+
   }
 
   start(): void{
     if (this.count.invalid && this.count.value <= 0) return;
-
+    this.loading = true;
     this.bunsService.createBunsList(this.count.value)
     .pipe(
       takeUntil(this.destroy$)
     )
     .subscribe((res) => {
       console.log(res);
+      setTimeout(() => {
+        this.loading = false;
+      }, 10000);
+
     })
   }
 

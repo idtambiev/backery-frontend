@@ -4,6 +4,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './components/header/header.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     HeaderComponent
@@ -12,12 +14,14 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     MatTableModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ], exports:[
     MatTableModule,
     MatIconModule,
     HeaderComponent,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ]
 })
 export class SharedModule { }

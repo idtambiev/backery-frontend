@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BunModel } from '@interfaces/bun.model';
 import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
+import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -8,7 +10,8 @@ import { environment } from 'src/environments/environment';
 })
 export class SignalRService {
   hubConnection: HubConnection | undefined;
-  url = environment.url
+  url = environment.url;
+  bunsData$: BehaviorSubject<any> = new BehaviorSubject(null);
 
   constructor(private http: HttpClient){}
 
@@ -25,7 +28,8 @@ export class SignalRService {
 
   public addTransferDataListener = () => {
     this.hubConnection?.on('transferchartdata', (data) => {
-      console.log(data);
+      //console.log(data);
+      this.bunsData$.next(data);
     });
   }
 }

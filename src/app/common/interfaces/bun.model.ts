@@ -7,5 +7,5 @@ export interface BunModel{
   startPrice: number;
   currentPrice: number;
   nextPrice: number;
-  timeToChange: Date;
+  nextDate: Date;
 }
